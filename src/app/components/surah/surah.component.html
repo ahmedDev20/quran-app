@@ -1,0 +1,29 @@
+<ng-container *ngIf="surah">
+  <div class="surah-container">
+    <p class="ayah-text">
+      {{ ayah.text }}
+    </p>
+    <p class="ayah-text-en">
+      {{ ayahEn.text }}
+    </p>
+    <p class="surah-name">({{ surah.numberOfAyahs }}/{{ ayah.numberInSurah }}) {{ surah.name }}</p>
+  </div>
+
+  <div class="controls-container">
+    <button class="surah-control" (click)="prevSurah()">السورة السابقة</button>
+    <button class="surah-control" (click)="prevAyah()">الآية السابقة</button>
+    <button class="surah-control" (click)="nextAyah()">الآية التالية</button>
+    <button class="surah-control" (click)="nextSurah()">السورة التالية</button>
+  </div>
+
+  <div *ngIf="isAudioReady" class="audio-container">
+    <button (click)="toggleAudio()" class="audio-control">
+      <img *ngIf="!isAudioPlaying" src="assets/play-btn.png" alt="play button" />
+      <img *ngIf="isAudioPlaying" src="assets/pause-btn.png" alt="pause button" />
+    </button>
+  </div>
+</ng-container>
+
+<div *ngIf="!surah" class="loading-container">
+  <p class="loading-text">...جاري التحميل</p>
+</div>

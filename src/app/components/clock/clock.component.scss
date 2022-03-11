@@ -1,0 +1,14 @@
+@import '/src/mixins.scss';
+
+.clock {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  @include text-shadow;
+}
+
+.ampm {
+  font-size: 20px;
+}

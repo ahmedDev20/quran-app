@@ -1,0 +1,97 @@
+@import '/src/mixins.scss';
+
+:host {
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+}
+
+.surah-container {
+  min-height: 300px;
+  border-radius: 20px;
+  background-color: #281e1e4f;
+  text-align: center;
+  padding: 1em;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include box-shadow;
+}
+
+.ayah-text {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Tajawal-Medium', sans-serif;
+  font-size: 20px;
+  line-height: 35px;
+}
+
+.ayah-text-en {
+  font-size: 14px;
+}
+
+.surah-name {
+  font-weight: normal;
+  margin-top: 1em;
+}
+
+.controls-container {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .surah-control {
+    background-color: #281e1e4f;
+    padding: 0.7em 0.2em;
+    margin: 0 0.2em;
+    font-size: 1em;
+    font-family: 'Tajawal-Medium', sans-serif;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+    @include box-shadow;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.audio-container {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .audio-control {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    @include text-shadow;
+  }
+}
+
+.loading-container {
+  flex: 1;
+  border-radius: 20px;
+  background-color: #281e1e4f;
+  text-align: center;
+  padding: 1em;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include box-shadow;
+
+  .loading-text {
+    font-family: 'Tajawal-Medium', sans-serif;
+    font-size: 30px;
+  }
+}
