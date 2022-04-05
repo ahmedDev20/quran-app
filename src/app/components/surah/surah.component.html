@@ -1,5 +1,9 @@
-<ng-container *ngIf="surah">
-  <div class="surah-container">
+<surah-select></surah-select>
+
+<div class="surah-container">
+  <p *ngIf="!isSurahLoaded" class="loading-text">...جاري التحميل</p>
+
+  <ng-container *ngIf="isSurahLoaded">
     <p class="ayah-text">
       {{ ayah.text }}
     </p>
@@ -7,23 +11,23 @@
       {{ ayahEn.text }}
     </p>
     <p class="surah-name">({{ surah.numberOfAyahs }}/{{ ayah.numberInSurah }}) {{ surah.name }}</p>
-  </div>
+  </ng-container>
+</div>
 
-  <div class="controls-container">
-    <button class="surah-control" (click)="prevSurah()">السورة السابقة</button>
-    <button class="surah-control" (click)="prevAyah()">الآية السابقة</button>
-    <button class="surah-control" (click)="nextAyah()">الآية التالية</button>
-    <button class="surah-control" (click)="nextSurah()">السورة التالية</button>
-  </div>
+<div class="controls-container">
+  <button class="surah-control" [ngClass]="{ disabled: !isSurahLoaded || isFirstSurah }" (click)="prevSurah()">السورة السابقة</button>
+  <button class="surah-control" [ngClass]="{ disabled: !isSurahLoaded || isFirstAyah }" (click)="prevAyah()">الآية السابقة</button>
+  <button class="surah-control" [ngClass]="{ disabled: !isSurahLoaded || isLastAyah }" (click)="nextAyah()">الآية التالية</button>
+  <button class="surah-control" [ngClass]="{ disabled: !isSurahLoaded || isLastSurah }" (click)="nextSurah()">السورة التالية</button>
+</div>
 
-  <div *ngIf="isAudioReady" class="audio-container">
-    <button (click)="toggleAudio()" class="audio-control">
+<div class="audio-container">
+  <button (click)="toggleAyahAudio()" class="audio-control">
+    <ng-container *ngIf="isAudioReady">
       <img *ngIf="!isAudioPlaying" src="assets/play-btn.png" alt="play button" />
       <img *ngIf="isAudioPlaying" src="assets/pause-btn.png" alt="pause button" />
-    </button>
-  </div>
-</ng-container>
+    </ng-container>
 
-<div *ngIf="!surah" class="loading-container">
-  <p class="loading-text">...جاري التحميل</p>
+    <img *ngIf="!isAudioReady" src="assets/loader.gif" alt="loading icon" />
+  </button>
 </div>

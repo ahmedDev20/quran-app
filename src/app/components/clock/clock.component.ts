@@ -15,8 +15,6 @@ export class ClockComponent implements OnInit {
 
   ngOnInit(): void {
     setInterval(() => {
-      // this.currentTime = time12Hour().time;
-      // this.amPm = time12Hour().ampm;
       this.currentDate = new Date();
     }, 1000);
   }

@@ -7,6 +7,10 @@
   font-weight: 700;
   text-align: center;
   @include text-shadow;
+
+  @media (min-width: 768px) {
+    font-size: 5em;
+  }
 }
 
 .ampm {
